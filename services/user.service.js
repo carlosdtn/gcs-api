@@ -1,13 +1,13 @@
 export class UserService {
   constructor() {
-    this.users = [];
+    this.users = []
   }
 
   createUser(user) {
-    this.users.push(user);
+    this.users.push(user)
   }
 
   getUsers() {
-    return this.users;
+    return this.users
   }
 }

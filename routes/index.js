@@ -1,10 +1,8 @@
-import { Router } from "express";
-import userRouter from "./users.router.js";
+import { Router } from 'express'
+import userRouter from './users.router.js'
 
-function routerApi(app) {
-  const router = Router();
-  app.use("/api/v1", router);
-  router.use("/users", userRouter);
-}
+const router = Router()
 
-export default routerApi;
+router.use('/users', userRouter)
+
+export default router

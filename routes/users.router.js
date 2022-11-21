@@ -1,11 +1,11 @@
-import express from "express";
-import { UserService } from "./../services/user.service.js";
+import express from 'express'
+import { UserService } from './../services/user.service.js'
 
-const router = express.Router();
-const service = new UserService();
+const router = express.Router()
+const service = new UserService()
 
-router.get("/", (req, res) => {
-  res.send("Usuarios");
-});
+router.get('/', (req, res) => {
+  res.send('Usuarios')
+})
 
-export default router;
+export default router
