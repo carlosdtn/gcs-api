@@ -2,12 +2,17 @@ import { Schema, model } from 'mongoose'
 
 const parcelSchema = new Schema(
   {
-    parcelId: {
+    region: {
       type: String,
       required: true,
-      unique: true
+      trim: true
     },
     name: {
+      type: String,
+      required: true,
+      trim: true
+    },
+    code: {
       type: String,
       required: true,
       trim: true
@@ -17,17 +22,12 @@ const parcelSchema = new Schema(
       required: true,
       trim: true
     },
-    country: {
+    orchardName: {
       type: String,
       required: true,
       trim: true
     },
-    city: {
-      type: String,
-      required: true,
-      trim: true
-    },
-    image: { type: String, required: true }
+    image: { type: String, trim: true }
   },
   { timestamps: true, versionKey: false }
 )

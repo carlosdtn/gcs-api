@@ -1,4 +1,4 @@
-export class UserService {
+class UserService {
   constructor() {
     this.users = []
   }
@@ -11,3 +11,5 @@ export class UserService {
     return this.users
   }
 }
+
+export default UserService
