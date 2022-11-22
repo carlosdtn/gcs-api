@@ -2,6 +2,9 @@ import config from '../config.js'
 import express from 'express'
 import routes from '../routes/index.js'
 import { createDBConnection } from '../db/index.js'
+import cors from 'cors'
+import { corsOptions } from '../utils/functions.js'
+import { whitelist } from '../utils/constants.js'
 
 class Server {
   constructor() {
@@ -14,6 +17,7 @@ class Server {
 
   middlewares() {
     this.app.use(express.json())
+    this.app.use(cors(corsOptions(whitelist)))
   }
 
   routes() {
@@ -26,7 +30,7 @@ class Server {
 
   listen() {
     this.app.listen(this.port, () => {
-      console.log('Server is up on port', this.port)
+      console.log('Server is up on port:', this.port)
     })
   }
 }

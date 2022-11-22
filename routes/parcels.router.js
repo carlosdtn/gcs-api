@@ -1,5 +1,6 @@
 import express from 'express'
 import ParcelService from '../services/parcel.service.js'
+import { DEFAULT_IMG } from '../utils/constants.js'
 
 const router = express.Router()
 const service = new ParcelService()
@@ -15,7 +16,14 @@ router.get('/:id', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-  const newParcel = req.body
+  const newParcel = {
+    region: req.body.region,
+    name: req.body.name,
+    code: req.body.code,
+    description: req.body.description,
+    orchardName: req.body.orchardName,
+    image: req.body.image ? req.body.image : DEFAULT_IMG
+  }
   const parcelSaved = await service.create(newParcel)
   res.json({
     message: 'Parcel created',
